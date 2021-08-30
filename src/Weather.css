@@ -1,0 +1,14 @@
+.Weather {
+	border: 1px solid black;
+	margin: 0 auto;
+	margin-top: 10px;
+	max-width: 800px;
+}
+
+.row {
+}
+
+form {
+	margin: 0 auto;
+	max-width: 500px;
+}

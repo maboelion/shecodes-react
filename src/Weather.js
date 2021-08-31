@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
+import FormattedDate from "./FormattedDate";
+import Weekday from "./Weekday";
 
 export default function Weather(props) {
 	let [weatherData, setWeatherData] = useState({ ready: false });
@@ -8,15 +10,14 @@ export default function Weather(props) {
 	function handleResponse(response) {
 		setWeatherData({
 			ready: true,
-			weekday: "Tuesday",
-			time: "18:50",
+			date: new Date(response.data.dt * 1000),
 			description: response.data.weather[0].description,
 			icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`,
 			temperature: Math.round(response.data.main.temp),
 			min: Math.round(response.data.main.temp_min),
 			max: Math.round(response.data.main.temp_max),
-			sunrise: response.data.sys.sunrise,
-			sunset: response.data.sys.sunset,
+			sunrise: new Date(response.data.sys.sunrise * 1000),
+			sunset: new Date(response.data.sys.sunset * 1000),
 			humidity: response.data.main.humidity,
 			wind: Math.round(response.data.wind.speed * 3.6),
 		});
@@ -54,7 +55,8 @@ export default function Weather(props) {
 							<h2>{props.city}</h2>
 							<ul>
 								<li>
-									{weatherData.weekday} {weatherData.time}
+									<Weekday date={weatherData.date} />
+									<FormattedDate date={weatherData.date} />
 								</li>
 								<li className="mt-3 ms-4">
 									<img src={weatherData.icon} alt={weatherData.description} />
@@ -80,8 +82,12 @@ export default function Weather(props) {
 						</div>
 						<div className="col-4 text-end mt-4">
 							<ul>
-								<li>Sunrise Time: {weatherData.sunrise}</li>
-								<li>Sunset Time: {weatherData.sunset}</li>
+								<li>
+									Sunrise Time: <FormattedDate date={weatherData.sunrise} />
+								</li>
+								<li>
+									Sunset Time: <FormattedDate date={weatherData.sunset} />
+								</li>
 								<li className="mt-4">Humidity: {weatherData.humidity}%</li>
 								<li>Wind: {weatherData.wind}km/h</li>
 							</ul>

@@ -2,6 +2,7 @@ import React from "react";
 import FormattedDate from "./FormattedDate";
 import Weekday from "./Weekday";
 import WeatherIcon from "./WeatherIcon";
+import TemperatureDisplay from "./TemperatureDisplay";
 
 export default function WeatherInfo(props) {
 	return (
@@ -25,17 +26,11 @@ export default function WeatherInfo(props) {
 						</ul>
 					</div>
 					<div className="col-4 text-center">
-						<ul>
-							<li>
-								<h3>{props.data.temperature}°</h3>
-							</li>
-							<li>
-								{props.data.min}°C | <strong>{props.data.max}°C</strong>
-							</li>
-							<li className="mt-4">
-								<button className="btn btn-light">Fahrenheit</button>
-							</li>
-						</ul>
+						<TemperatureDisplay
+							celsius={props.data.temperature}
+							min={props.data.min}
+							max={props.data.max}
+						/>
 					</div>
 					<div className="col-4 text-end mt-4">
 						<ul>

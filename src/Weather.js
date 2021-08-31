@@ -13,7 +13,7 @@ export default function Weather(props) {
 			ready: true,
 			date: new Date(response.data.dt * 1000),
 			description: response.data.weather[0].description,
-			icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`,
+			icon: response.data.weather[0].icon,
 			temperature: Math.round(response.data.main.temp),
 			min: Math.round(response.data.main.temp_min),
 			max: Math.round(response.data.main.temp_max),

@@ -9,7 +9,7 @@ export default function Weather(props) {
 
 	function handleResponse(response) {
 		setWeatherData({
-			city: props.city,
+			name: city,
 			ready: true,
 			date: new Date(response.data.dt * 1000),
 			description: response.data.weather[0].description,
@@ -49,8 +49,9 @@ export default function Weather(props) {
 							<input
 								type="search"
 								placeholder="Enter a city..."
-								autofocus="on"
+								autoFocus="on"
 								className="form-control w-100"
+								onChange={handleCityChange}
 							/>
 						</div>
 						<div className="col-3">
@@ -58,7 +59,6 @@ export default function Weather(props) {
 								className="btn btn-dark w-100"
 								type="submit"
 								value="Search"
-								onChange={handleCityChange}
 							/>
 						</div>
 						<div className="col-3">
@@ -66,7 +66,7 @@ export default function Weather(props) {
 						</div>
 					</div>
 				</form>
-				<WeatherInfo data={weatherData} />
+				<WeatherInfo data={weatherData} city={city} />
 			</div>
 		);
 	} else {

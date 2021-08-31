@@ -8,10 +8,10 @@ export default function WeatherInfo(props) {
 			<div className="weather-display">
 				<div className="row">
 					<div className="col-4">
-						<h2>{props.data.city}</h2>
+						<h2 className="text-capitalize">{props.data.name}</h2>
 						<ul>
 							<li>
-								<Weekday date={props.data.date} />
+								<Weekday date={props.data.date} />{" "}
 								<FormattedDate date={props.data.date} />
 							</li>
 							<li className="mt-3 ms-4">

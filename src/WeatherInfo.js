@@ -17,7 +17,9 @@ export default function WeatherInfo(props) {
 								<FormattedDate date={props.data.date} />
 							</li>
 							<li className="mt-2">
-								<WeatherIcon code={props.data.icon} />
+								<div className="ms-3">
+									<WeatherIcon code={props.data.icon} />
+								</div>
 								<small className="text-capitalize">
 									{props.data.description}
 								</small>

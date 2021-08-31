@@ -16,10 +16,9 @@ export default function WeatherInfo(props) {
 								<Weekday date={props.data.date} />{" "}
 								<FormattedDate date={props.data.date} />
 							</li>
-							<li className="mt-3 ms-4">
+							<li className="mt-2">
 								<WeatherIcon code={props.data.icon} />
-								<br />
-								<small className="ms-2 text-capitalize">
+								<small className="text-capitalize">
 									{props.data.description}
 								</small>
 							</li>

@@ -36,5 +36,5 @@ export default function WeatherIcon(props) {
 		"50n": <FontAwesomeIcon icon={faSmog} />,
 	};
 
-	return <span>{allCodes[props.code]}</span>;
+	return <div className="WeatherIcon ms-3">{allCodes[props.code]}</div>;
 }

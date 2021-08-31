@@ -56,3 +56,8 @@
 .Weather .btn-dark:hover {
 	background: tomato;
 }
+
+.WeatherIcon {
+	color: #e8e8e8;
+	font-size: 36px;
+}

@@ -61,3 +61,16 @@
 	color: #e8e8e8;
 	font-size: 36px;
 }
+
+.WeatherForecast {
+	font-size: 18px;
+	margin: 20px -5px 0 -5px;
+	padding: 10px;
+	background: white;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.WeatherForecast .forecast-temp {
+	font-size: 14px;
+}

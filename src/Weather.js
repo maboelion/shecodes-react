@@ -9,8 +9,9 @@ export default function Weather(props) {
 	const [city, setCity] = useState(props.city);
 
 	function handleResponse(response) {
+		console.log(response.data);
 		setWeatherData({
-			name: city,
+			name: response.data.name,
 			coords: response.data.coord,
 			ready: true,
 			date: new Date(response.data.dt * 1000),
@@ -41,11 +42,24 @@ export default function Weather(props) {
 		search();
 	}
 
+	function displayCoords(position) {
+		let lat = position.coords.latitude;
+		let lon = position.coords.longitude;
+		let apiKey = "3b478c1272c318ae84892336587ae67c";
+		let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+		axios.get(apiUrl).then(handleResponse);
+	}
+
+	function handleCurrent(event) {
+		event.preventDefault();
+		navigator.geolocation.getCurrentPosition(displayCoords);
+	}
+
 	if (weatherData.ready) {
 		return (
 			<div className="Weather">
 				<h1>Weather App</h1>
-				<hr noshade width="300" size="3" />
+				<hr width="280" size="3" />
 				<form onSubmit={handleSubmit}>
 					<div className="row">
 						<div className="col-md-6 mt-1">
@@ -65,7 +79,9 @@ export default function Weather(props) {
 							/>
 						</div>
 						<div className="col-md-3 mt-1">
-							<button className="btn btn-dark w-100">Current</button>
+							<button className="btn btn-dark w-100" onClick={handleCurrent}>
+								Current
+							</button>
 						</div>
 					</div>
 				</form>

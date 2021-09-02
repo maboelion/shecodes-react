@@ -13,7 +13,8 @@ export default function WeatherInfo(props) {
 						<h2 className="text-capitalize">{props.data.name}</h2>
 						<ul>
 							<li>
-								<Weekday date={props.data.date} />{" "}
+								<Weekday date={props.data.date} />
+								{" ~"}
 								<FormattedDate date={props.data.date} />
 							</li>
 							<li className="mt-2">

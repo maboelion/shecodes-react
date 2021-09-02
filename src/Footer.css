@@ -5,5 +5,11 @@
 }
 
 .Footer a {
+	color: black;
+	font-weight: 600;
+}
+
+.Footer a:hover {
+	font-weight: 600;
 	color: tomato;
 }

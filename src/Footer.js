@@ -12,7 +12,15 @@ export default function Footer() {
 				>
 					Open-source code
 				</a>{" "}
-				by Mareike for SheCodes. Hostet on Netlify.
+				by Mareike for SheCodes. Hosted on{" "}
+				<a
+					href="https://www.netlify.com"
+					target="_blank"
+					rel="noreferrer noopener"
+				>
+					Netlify
+				</a>
+				.
 			</p>
 		</div>
 	);

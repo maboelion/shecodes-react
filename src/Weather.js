@@ -9,19 +9,19 @@ export default function Weather(props) {
 	const [city, setCity] = useState(props.city);
 
 	function handleResponse(response) {
-		console.log(response.data);
 		setWeatherData({
 			name: response.data.name,
 			coords: response.data.coord,
 			ready: true,
-			date: new Date(response.data.dt * 1000),
+			date: response.data.dt,
+			timezone: response.data.timezone,
 			description: response.data.weather[0].description,
 			icon: response.data.weather[0].icon,
 			temperature: Math.round(response.data.main.temp),
 			min: Math.round(response.data.main.temp_min),
 			max: Math.round(response.data.main.temp_max),
-			sunrise: new Date(response.data.sys.sunrise * 1000),
-			sunset: new Date(response.data.sys.sunset * 1000),
+			sunrise: response.data.sys.sunrise,
+			sunset: response.data.sys.sunset,
 			humidity: response.data.main.humidity,
 			wind: Math.round(response.data.wind.speed * 3.6),
 		});

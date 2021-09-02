@@ -13,9 +13,15 @@ export default function WeatherInfo(props) {
 						<h2 className="text-capitalize">{props.data.name}</h2>
 						<ul>
 							<li>
-								<Weekday date={props.data.date} />
+								<Weekday
+									date={props.data.date}
+									timezone={props.data.timezone}
+								/>
 								{" ~"}
-								<FormattedDate date={props.data.date} />
+								<FormattedDate
+									date={props.data.date}
+									timezone={props.data.timezone}
+								/>
 							</li>
 							<li className="mt-2">
 								<div className="weather-icon">
@@ -37,10 +43,18 @@ export default function WeatherInfo(props) {
 					<div className="col-md-4 text-md-end mt-4">
 						<ul>
 							<li>
-								Sunrise Time: <FormattedDate date={props.data.sunrise} />
+								Sunrise Time:{" "}
+								<FormattedDate
+									date={props.data.sunrise}
+									timezone={props.data.timezone}
+								/>
 							</li>
 							<li>
-								Sunset Time: <FormattedDate date={props.data.sunset} />
+								Sunset Time:{" "}
+								<FormattedDate
+									date={props.data.sunset}
+									timezone={props.data.timezone}
+								/>
 							</li>
 							<li className="mt-4">Humidity: {props.data.humidity}%</li>
 							<li>Wind: {props.data.wind}km/h</li>

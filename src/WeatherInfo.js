@@ -9,7 +9,7 @@ export default function WeatherInfo(props) {
 		<div className="WeatherInfo">
 			<div className="weather-display">
 				<div className="row">
-					<div className="col-4">
+					<div className="col-md-4">
 						<h2 className="text-capitalize">{props.data.name}</h2>
 						<ul>
 							<li>
@@ -17,7 +17,7 @@ export default function WeatherInfo(props) {
 								<FormattedDate date={props.data.date} />
 							</li>
 							<li className="mt-2">
-								<div className="ms-3">
+								<div className="weather-icon">
 									<WeatherIcon code={props.data.icon} />
 								</div>
 								<small className="text-capitalize">
@@ -26,14 +26,14 @@ export default function WeatherInfo(props) {
 							</li>
 						</ul>
 					</div>
-					<div className="col-4 text-center">
+					<div className="col-md-4 text-center">
 						<TemperatureDisplay
 							celsius={props.data.temperature}
 							min={props.data.min}
 							max={props.data.max}
 						/>
 					</div>
-					<div className="col-4 text-end mt-4">
+					<div className="col-md-4 text-md-end mt-4">
 						<ul>
 							<li>
 								Sunrise Time: <FormattedDate date={props.data.sunrise} />

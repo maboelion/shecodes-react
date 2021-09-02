@@ -7,7 +7,9 @@
 }
 
 .Weather h1 {
-	margin: 0 0 30px 0;
+	text-align: center;
+	font-size: 32px;
+	margin: 0;
 	line-height: 1;
 }
 
@@ -21,9 +23,19 @@
 	font-weight: 700;
 }
 
+.Weather hr {
+	color: tomato;
+	margin: 30px auto;
+}
+
 .Weather form {
 	margin: 0 auto;
 	max-width: 500px;
+}
+
+.Weather .form-control:focus {
+	border-color: tomato;
+	box-shadow: 0 0 0 0.25rem rgba(255, 99, 71, 0.25);
 }
 
 .Weather ul {
@@ -58,8 +70,12 @@
 }
 
 .WeatherIcon {
-	color: #e8e8e8;
+	color: rgb(255, 99, 71, 0.6);
 	font-size: 36px;
+}
+
+.WeatherInfo .WeatherIcon {
+	margin-left: 30px;
 }
 
 .WeatherForecast {
@@ -73,4 +89,13 @@
 
 .WeatherForecast .forecast-temp {
 	font-size: 14px;
+}
+
+@media (max-width: 769px) {
+	.Weather {
+		text-align: center;
+	}
+	.WeatherInfo .WeatherIcon {
+		margin-left: 0;
+	}
 }
